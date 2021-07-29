@@ -1,0 +1,224 @@
+@charset 'utf-8';
+
+html{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+}
+
+body{
+    overflow-x: hidden;
+    color: rgb(29, 29, 31);
+    letter-spacing: -0.05em;
+    background: white;
+}
+
+p{
+    line-height: 1.6;
+}
+
+.global-nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    padding: 0 1rem;
+}
+
+.local-nav{
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    border-bottom: 1px solid #ddd;
+    padding: 0 1rem;
+}
+
+.global-nav-links,
+.local-nav-links{
+    height: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(29, 29, 31);
+}
+
+.global-nav-links{
+    justify-content: space-between;
+}
+
+.local-nav{
+    height: 44px;
+}
+
+.product-name{
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.local-nav-links a:not(.product-name){
+    margin-left: 2em;
+    font-size: 0.8rem;
+}
+
+/* vh view(보이는 것의)에 대한 상대적 크기 위치?
+50vh 뷰포트의50퍼센트 크기에 padding을 준다. */
+.scroll-section {
+    padding-top: 50vh;
+    border: 3px solid red;
+}
+
+#scroll-section-0 h1{
+    font-size: 4rem;
+    text-align: center;
+}
+.main-message {
+    top: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    margin: 5px 0;
+    font-size: 2.5rem;
+    font-size: 2.5rem;
+    opacity: 0;
+}
+
+.main-message small{
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.5rem;;
+}
+.main-message p{
+    font-weight: bold;
+    text-align: center;
+}
+
+.description{
+    padding: 0 1rem;
+    font-size:1.2rem;
+    color: #888;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+/* rem: root font-size의 몇배?
+em: 현재 내 폰트사이즈의 몇배
+
+마진은 em으로 rem은 폰트사이즈로 하는게 일반적임
+폰트사이즈에 상대적인 마진을 준다는 거임.
+지금 폰트에 대한 디자인을 하고 있으니까. */
+/* 보통 스크롤을 감싸고 돌게함 right함 해보셈 왜 left한지 알게 됨 */
+.description strong {
+    float: left;
+    margin-right: 0.2em;
+    font-size: 3rem;
+    color: rgb(0,0,0);
+}
+
+#scroll-section-2 .main-message{
+    font-size: 3.5rem;
+}
+
+.desc-message{
+    width: 50%;
+    font-weight: bold;
+}
+
+.pin{
+    width: 1px;
+    height: 100px;
+    background: rgb(29,29,31);
+}
+
+.mid-message{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 2rem;
+    color: #888;
+}
+
+.mid-message strong{
+    color: rgb(029,29,31);
+}
+
+.canvas-caption{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    color: #888;
+    font-size:1.2rem;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7rem;
+    background: black;
+    color: white;
+}
+
+
+.sticky-elem{
+    display: none;
+    position: fixed;
+    /* top: 0; */
+    left: 0;
+    width: 100%;
+}
+
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem{
+    display: block;
+}
+
+@media (min-width: 1024px){
+    #scroll-section-0 h1{
+        font-size: 9vw;
+    }
+    .main-message{
+        font-size: 4vw;
+    }
+    .description{
+        font-size: 2rem;
+    }
+    .description strong{
+        font-size: 6rem;
+    }
+    #scroll-section-2 .main-message{
+        font-size: 6vm;
+    }
+    .main-message small{
+        font-size: 1.5vw;
+    }
+    .desc-message{
+        width: 20%;
+        font-weight: bold;
+    }
+    .mid-message{
+        /* rem은 고정 값 vw창 크기의 몇퍼센트인지 */
+        font-size: 4vw;
+    }
+    .canvas-caption{
+        font-size: 2rem;
+    }
+}
+
+
+/* display: flex;
+algin-item: center
+원래는 -로 한줄 다 차지하던 div가 자기 영역만 가지면서 아래 div태그를 옆으로 끌어옴
+aligin-item세로 방향 정렬
+
+justify-content는 가로 방향 정렬 */
+
