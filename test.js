@@ -95,8 +95,8 @@
         
             if(currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd){
                 rv = (currentYOffset - partScrollStart) / partScrollHeight * (values[1]-values[0]) + values[0] ; 
-                //partScrollStart 시작 '포인트' '위치', 현재 이 씬에서 내 위치인 currentYOffset에서 그 시작 포인트를 빼주면 시작 후부터의 스크롤만 남겠지.
-                //스크롤이 시작 후 부터에 있는지는 if로 걸러서 확실한 거지.그럼 결과적으로 이 씬에서의 나의 스크롤이 아니라 시작 포인트부터 나의 스크롤에 대한 비례 식이 나오게 된다.
+                //partScrollStart 시작 '포인트' '위치', 현재 이 씬에서 내 위치인 currentYOffset에서 그 시작 포인트를 빼주면 시작 후부터의 스크롤만 남음
+                //스크롤이 시작 후 부터에 있는지는 if로 걸러서 확실하고 그럼 결과적으로 이 씬에서의 나의 스크롤이 아니라 시작 포인트부터 나의 스크롤에 대한 비례 식이 나오게 됨
             } else if (currentYOffset <  partScrollStart){
                 rv = values[0];
             } else if (currentYOffset > partScrollEnd){
@@ -106,8 +106,7 @@
             rv = scrollRatio * values[1]-values[0] + values[0]; 
         }
  
-        // //만약 범위가 [200,900]이면 값은 200부터 시작해서 700더한 900까지 움직여야함
-        //그걸 식으로 쓰면 이렇게 됨
+        // 만약 범위가 [200,900]이면 값은 200부터 시작해서 700더한 900까지 움직여야함
         return rv;
   }
 
@@ -138,11 +137,9 @@
                 break;
         }
     }
-    // currentscenn이 2일 때
-    // for문은 0,1 2번 돌지
+    // currentscenn이 2일 때 for문은 0,1 2번 돎
     // sceneInfo[i].scrollHeight; -> 각 페이지의 스크롤 양
     // 0번 페이지의 스크롤양 더하기 1번 페이지 더하기 스크롤양
-    // 맞는 문법 맞네.
     function scrollLoop() {
         prevScrollHeight = 0;
         changeScene = false;
@@ -150,8 +147,8 @@
             prevScrollHeight += sceneInfo[i].scrollHeight;
         }
 
-        // 내가 지금 있는 위치가 이전에 지나온 씬들에다가 지금 현재 씬 더한거 보다 커
-        // 다음 페이지로 넘어가려고 하는 것임
+        // 내가 지금 있는 위치가 이전에 지나온 씬들에다가 지금 현재 씬 더한거 보다 큼
+        // 다음 페이지로 넘어가려고 하는 것
         // currentsceen ++
         if(yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight){  
             currentScene++;
@@ -159,7 +156,7 @@
             document.body.setAttribute('id', `show-scene-${currentScene}`);
         }
 
-        // 내 현재 위치가 이전에 지나온 씬들보다 작아.
+        // 내 현재 위치가 이전에 지나온 씬들보다 작음
         // 다시 스크롤을 위로 올리는 상태.
         // current --
         if (yOffset < prevScrollHeight){
